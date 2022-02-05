@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-require('../models/database');
+
 const Post = require('../models/post');
 const User = require('../models/user');
 

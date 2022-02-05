@@ -1,4 +1,4 @@
-require('../models/database');
+
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 exports.getsignup=(req,res,next)=>{
