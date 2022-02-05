@@ -1,0 +1,69 @@
+<% if(errorMessage) { %>
+    <div class="user-message user-message--success"><%= errorMessage %></div>
+<% } %>
+<div class="container mt-2">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md- px-0">
+            <h1 class="fst-bold fs-1 text-center mt-2">Publish your passions, your way</h1>
+            <p class="lead my-4 mb-5 text-center">Create a unique and beautiful blog. It’s easy and free.</p>
+            <div class="d-md-flex justify-content-md-center mb-4">
+                <a class="btn btn-danger btn-lg" href="/create" role="button"
+                    >Create Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <% if(posts !='' ){ %>
+            <% posts.forEach(function(posts, index){ %>
+                <div class="col-md-6">
+                    <div
+                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+
+
+                            <h3 class="mb-0"><%- posts.title %></h3>
+                            <div class="mb-2 mt-2 text-muted"><i class="fas fa-user"></i><%- posts.username %></div>
+                            <p class="card-text mb-auto" style="text-overflow: ellipsis; overflow: hidden; max-width: 23ch; white-space: nowrap;"><%- posts.content %></p>
+                            <a href="/view/<%- posts._id %>" class="stretched-link">Continue reading</a>
+                        </div>
+
+                        <div class="col-auto d-none d-lg-block">
+                            <img class="bd-placeholder-img" width="200" height="250" src="<%= posts.imageUrl %>"> </img>
+
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+                        
+    </div>
+    
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="crateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Create Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/index" enctype="multipart/form-data" method="POST">
+                        <div class="mb-3">
+                            <label for="title" class="col-form-label">title</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="col-form-label">content</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        <div class="mb-3"><input type="file" name="image" class="text-input"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-success" id="createblog">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

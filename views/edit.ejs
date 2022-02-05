@@ -1,0 +1,31 @@
+<% if(errorMessage) { %>
+    <div class="user-message user-message--error"><%= errorMessage %></div>
+    <% } %>
+<div class="px-4 py-4 my-4 text-center">
+    <h1 class="display-5 fw-bold" >Update Blog</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form action="/edit/<%- post._id %>" enctype="multipart/form-data" method="POST">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="title" class="col-form-label">title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="col-12">
+                    <label for="content" class="col-form-label">content</label>
+                    <textarea class="form-control" name="content" id="content"></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="image" class="col-form-label">image</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
+                <div class="col-12 mb-5">
+                    <button type="submit" class="btn btn-primary">Update Blog</button>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER":"stuti",
+        "MONGO_PASSWORD":"khushi0909",
+        "MONGO_DEFAULT_DATABASE":"messages"
+    }
+}
